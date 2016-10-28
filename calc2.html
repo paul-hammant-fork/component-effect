@@ -1,0 +1,187 @@
+<div id="example2" style="width: 252px; margin: auto;">
+    <script type="text/javascript">
+        var App = angular.module("MyApp2", []);
+
+        App.controller('Calculator', ['$scope', function ($scope) {
+
+            // var $scope.firstValue, secondValue;
+            // var operation;
+            var flag = false;
+            $scope.getValue = function (value) {
+                flag = false;
+                var currentValue = document.getElementById('display2').value;
+                var newValue = currentValue + value;
+                $scope.value = newValue;
+            };
+            $scope.performOperation = function (operationSymbol) {
+                $scope.firstValue = $scope.value;
+                $scope.value = '';
+                $scope.operation = operationSymbol;
+            };
+            $scope.clearLastValue = function () {
+                // console.log($scope.firstValue)
+                var currentValue = document.getElementById('display2').value;
+                if (currentValue.length !== 0 && flag === false)
+                    $scope.value = currentValue.substr(0, currentValue.length - 1);
+                else
+                    $scope.value = '';
+            };
+            $scope.showResults = function () {
+                $scope.secondValue = $scope.value;
+                flag = true;
+                switch ($scope.operation) {
+                    case '+':
+                        $scope.value = Number($scope.firstValue) + Number($scope.secondValue);
+                        break;
+                    case '-':
+                        $scope.value = Number($scope.firstValue) - Number($scope.secondValue);
+                        break;
+                    case '*':
+                        $scope.value = Number($scope.firstValue) * Number($scope.secondValue);
+                        break;
+                    case '/':
+                        $scope.value = Number($scope.firstValue) / Number($scope.secondValue);
+                        break;
+                    default:
+                        alert('something went wrong!');
+                        break;
+
+                }
+            }
+        }]);
+    </script>
+    <style type="text/css" scoped>
+
+        .cbox {
+            background-color: #3d4543;
+            height: 300px;
+            width: 250px;
+            border-radius: 10px;
+            top: 80px;
+            left: 40%;
+        }
+
+        .cdisplay {
+            background-color: #222;
+            width: 220px;
+            position: relative;
+            left: 15px;
+            top: 20px;
+            height: 40px;
+        }
+
+        .cdisplay input {
+            position: relative;
+            left: 2px;
+            top: 2px;
+            height: 35px;
+            color: black;
+            background-color: #bccd95;
+            font-size: 21px;
+            text-align: right;
+        }
+
+        .ckeys {
+            position: relative;
+            top: 25px;
+        }
+
+        .cbutton {
+            width: 40px;
+            height: 30px;
+            border: none;
+            border-radius: 8px;
+            margin-left: 17px;
+            cursor: pointer;
+            border-top: 2px solid transparent;
+        }
+
+        .cbutton.cgray {
+            color: white;
+            background-color: #6f6f6f;
+            border-bottom: black 2px solid;
+            border-top: 2px #6f6f6f solid;
+        }
+
+        .cbutton.cpink {
+            color: black;
+            background-color: #ff4561;
+            border-bottom: black 2px solid;
+        }
+
+        .cbutton.cblack {
+            color: white;
+            background-color: #303030;
+            border-bottom: black 2px solid;
+            border-top: 2px #303030 solid;
+        }
+
+        .cbutton.corange {
+            color: black;
+            background-color: #FF9933;
+            border-bottom: black 2px solid;
+            border-top: 2px #FF9933 solid;
+        }
+
+        .cgray:active {
+            border-top: black 2px solid;
+            border-bottom: 2px #6f6f6f solid;
+        }
+
+        .cpink:active {
+            border-top: black 2px solid;
+            border-bottom: #ff4561 2px solid;
+        }
+
+        .cblack:active {
+            border-top: black 2px solid;
+            border-bottom: #303030 2px solid;
+        }
+
+        .corange:active {
+            border-top: black 2px solid;
+            border-bottom: #FF9933 2px solid;
+        }
+
+        .cbox p {
+            line-height: 10px;
+        }
+    </style>
+    <div ng-app="MyApp2" class="cbox" ng-controller="Calculator">
+        <div class="cdisplay">
+            <input style="width: 100%" id="display2" type="text" readonly size="20" value="{{value}}">
+        </div>
+        <div class="ckeys">
+            <p>
+                <input type="button" class="cbutton cgray" value="mrc">
+                <input type="button" class="cbutton cgray" value="m-">
+                <input type="button" class="cbutton cgray" value="m+">
+                <input type="button" class="cbutton cpink" value="/" ng-click="performOperation('/')">
+            </p>
+            <p>
+                <input type="button" class="cbutton cblack" value="7" ng-click="getValue(7)">
+                <input type="button" class="cbutton cblack" value="8" ng-click="getValue(8)">
+                <input type="button" class="cbutton cblack" value="9" ng-click="getValue(9)">
+                <input type="button" class="cbutton cpink" value="*" ng-click="performOperation('*')">
+            </p>
+            <p>
+                <input type="button" class="cbutton cblack" value="4" ng-click="getValue(4)">
+                <input type="button" class="cbutton cblack" value="5" ng-click="getValue(5)">
+                <input type="button" class="cbutton cblack" value="6" ng-click="getValue(6)">
+                <input type="button" class="cbutton cpink" value="-" ng-click="performOperation('-')">
+            </p>
+            <p>
+                <input type="button" class="cbutton cblack" value="1" ng-click="getValue(1)">
+                <input type="button" class="cbutton cblack" value="2" ng-click="getValue(2)">
+                <input type="button" class="cbutton cblack" value="3" ng-click="getValue(3)">
+                <input type="button" class="cbutton cpink" value="+" ng-click="performOperation('+')">
+            </p>
+            <p>
+                <input type="button" class="cbutton cblack" value="0" ng-click="getValue(0)">
+                <input type="button" class="cbutton cblack" value="." ng-click="getValue('.')">
+                <input type="button" class="cbutton cblack" value="C" ng-click="clearLastValue()">
+                <input type="button" class="cbutton corange" value="=" ng-click="showResults()">
+            </p>
+        </div>
+    </div>
+</div>
