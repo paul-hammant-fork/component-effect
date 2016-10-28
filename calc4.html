@@ -9,7 +9,7 @@
             var flag = false;
             $scope.getValue = function (value) {
                 flag = false;
-                var currentValue = document.getElementById('display3').value;
+                var currentValue = document.getElementById('display4').value;
                 var newValue = currentValue + value;
                 $scope.value = newValue;
             };
@@ -20,7 +20,7 @@
             };
             $scope.clearLastValue = function () {
                 // console.log($scope.firstValue)
-                var currentValue = document.getElementById('display3').value;
+                var currentValue = document.getElementById('display4').value;
                 if (currentValue.length !== 0 && flag === false)
                     $scope.value = currentValue.substr(0, currentValue.length - 1);
                 else
