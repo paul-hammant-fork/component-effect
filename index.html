@@ -6,7 +6,6 @@
 		</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="styles.css">
 		<link rel="stylesheet" type="text/css" href="simpleGrid.css">
@@ -41,7 +40,7 @@
 					<h2>
 						Calc 1
 					</h2>
-					<div id="calc1">
+					<div id="calc1" isolate>
 					</div>
 				</div>
 			</div>
@@ -50,7 +49,7 @@
 					<h2>
 						Calc 2
 					</h2>
-					<div id="calc2">
+					<div id="calc2" isolate>
 					</div>
 				</div>
 			</div>
@@ -59,7 +58,7 @@
 					<h2>
 						Calc 3
 					</h2>
-					<div id="calc3">
+					<div id="calc3" isolate>
 					</div>
 				</div>
 			</div>
@@ -68,7 +67,7 @@
 					<h2>
 						Calc 4
 					</h2>
-					<div id="calc4">
+					<div id="calc4" isolate>
 					</div>
 				</div>
 			</div>
@@ -77,8 +76,7 @@
 		<footer class="grid grid-pad">
 			<div class="col-1-1">
 				<div class="ftcontent">
-					<p>Note: <span style="font-family: monospace">&lt;link id="link1" rel="import" href="path/to/filename.html"&gt;</span> is relied upon in this page.<br/><br/>
-						Note2: IDs and classes have to be planned (as you'd expect), but also ng-app names must be unique, and that second and subsequent Angular widgets need to be boostrapped.</p>
+					<p>Note: <span style="font-family: monospace">&lt;link id="link1" rel="import" href="path/to/filename.html"&gt;</span> is relied upon in this page.</p>
 				</div>
 			</div>
 			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -86,12 +84,9 @@
 	</body>
 	<script>
 		document.getElementById('calc1').appendChild(document.querySelector('#link1').import.querySelector('#example').cloneNode(true));
-		document.getElementById('calc2').appendChild(document.querySelector('#link2').import.querySelector('#example2').cloneNode(true));
-		document.getElementById('calc3').appendChild(document.querySelector('#link3').import.querySelector('#example3').cloneNode(true));
-		document.getElementById('calc4').appendChild(document.querySelector('#link4').import.querySelector('#example4').cloneNode(true));
-		angular.bootstrap(document.getElementById("example2"), ['MyApp2']);
-		angular.bootstrap(document.getElementById("example3"), ['MyApp3']);
-		angular.bootstrap(document.getElementById("example4"), ['MyApp4']);
+		document.getElementById('calc2').appendChild(document.querySelector('#link2').import.querySelector('#example').cloneNode(true));
+		document.getElementById('calc3').appendChild(document.querySelector('#link3').import.querySelector('#example').cloneNode(true));
+		document.getElementById('calc4').appendChild(document.querySelector('#link4').import.querySelector('#example').cloneNode(true));
 	</script>
 
 </html>

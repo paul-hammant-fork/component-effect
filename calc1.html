@@ -1,4 +1,5 @@
-<div id="example" style="width: 252px; margin: auto;">
+<div id="example" style="width: 252px">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script type="text/javascript">
         var App = angular.module("MyApp", []);
 
@@ -50,9 +51,9 @@
             }
         }]);
     </script>
-    <style type="text/css" scoped>
+    <style type="text/css">
 
-        .cbox {
+        .box {
             background-color: #3d4543;
             height: 300px;
             width: 250px;
@@ -61,7 +62,7 @@
             left: 40%;
         }
 
-        .cdisplay {
+        .display {
             background-color: #222;
             width: 220px;
             position: relative;
@@ -70,7 +71,7 @@
             height: 40px;
         }
 
-        .cdisplay input {
+        .display input {
             position: relative;
             left: 2px;
             top: 2px;
@@ -81,12 +82,12 @@
             text-align: right;
         }
 
-        .ckeys {
+        .keys {
             position: relative;
             top: 25px;
         }
 
-        .cbutton {
+        .button {
             width: 40px;
             height: 30px;
             border: none;
@@ -96,91 +97,91 @@
             border-top: 2px solid transparent;
         }
 
-        .cbutton.cgray {
+        .button.gray {
             color: white;
             background-color: #6f6f6f;
             border-bottom: black 2px solid;
             border-top: 2px #6f6f6f solid;
         }
 
-        .cbutton.cpink {
+        .button.pink {
             color: black;
             background-color: #ff4561;
             border-bottom: black 2px solid;
         }
 
-        .cbutton.cblack {
+        .button.black {
             color: white;
             background-color: #303030;
             border-bottom: black 2px solid;
             border-top: 2px #303030 solid;
         }
 
-        .cbutton.corange {
+        .button.orange {
             color: black;
             background-color: #FF9933;
             border-bottom: black 2px solid;
             border-top: 2px #FF9933 solid;
         }
 
-        .cgray:active {
+        .gray:active {
             border-top: black 2px solid;
             border-bottom: 2px #6f6f6f solid;
         }
 
-        .cpink:active {
+        .pink:active {
             border-top: black 2px solid;
             border-bottom: #ff4561 2px solid;
         }
 
-        .cblack:active {
+        .black:active {
             border-top: black 2px solid;
             border-bottom: #303030 2px solid;
         }
 
-        .corange:active {
+        .orange:active {
             border-top: black 2px solid;
             border-bottom: #FF9933 2px solid;
         }
 
-        .cbox p {
+        p {
             line-height: 10px;
         }
     </style>
-    <div ng-app="MyApp" class="cbox" ng-controller="Calculator">
-        <div class="cdisplay">
+    <div ng-app="MyApp" class="box" ng-controller="Calculator">
+        <div class="display">
             <input style="width: 100%" id="display" type="text" readonly size="20" value="{{value}}">
         </div>
-        <div class="ckeys">
+        <div class="keys">
             <p>
-                <input type="button" class="cbutton cgray" value="mrc">
-                <input type="button" class="cbutton cgray" value="m-">
-                <input type="button" class="cbutton cgray" value="m+">
-                <input type="button" class="cbutton cpink" value="/" ng-click="performOperation('/')">
+                <input type="button" class="button gray" value="mrc">
+                <input type="button" class="button gray" value="m-">
+                <input type="button" class="button gray" value="m+">
+                <input type="button" class="button pink" value="/" ng-click="performOperation('/')">
             </p>
             <p>
-                <input type="button" class="cbutton cblack" value="7" ng-click="getValue(7)">
-                <input type="button" class="cbutton cblack" value="8" ng-click="getValue(8)">
-                <input type="button" class="cbutton cblack" value="9" ng-click="getValue(9)">
-                <input type="button" class="cbutton cpink" value="*" ng-click="performOperation('*')">
+                <input type="button" class="button black" value="7" ng-click="getValue(7)">
+                <input type="button" class="button black" value="8" ng-click="getValue(8)">
+                <input type="button" class="button black" value="9" ng-click="getValue(9)">
+                <input type="button" class="button pink" value="*" ng-click="performOperation('*')">
             </p>
             <p>
-                <input type="button" class="cbutton cblack" value="4" ng-click="getValue(4)">
-                <input type="button" class="cbutton cblack" value="5" ng-click="getValue(5)">
-                <input type="button" class="cbutton cblack" value="6" ng-click="getValue(6)">
-                <input type="button" class="cbutton cpink" value="-" ng-click="performOperation('-')">
+                <input type="button" class="button black" value="4" ng-click="getValue(4)">
+                <input type="button" class="button black" value="5" ng-click="getValue(5)">
+                <input type="button" class="button black" value="6" ng-click="getValue(6)">
+                <input type="button" class="button pink" value="-" ng-click="performOperation('-')">
             </p>
             <p>
-                <input type="button" class="cbutton cblack" value="1" ng-click="getValue(1)">
-                <input type="button" class="cbutton cblack" value="2" ng-click="getValue(2)">
-                <input type="button" class="cbutton cblack" value="3" ng-click="getValue(3)">
-                <input type="button" class="cbutton cpink" value="+" ng-click="performOperation('+')">
+                <input type="button" class="button black" value="1" ng-click="getValue(1)">
+                <input type="button" class="button black" value="2" ng-click="getValue(2)">
+                <input type="button" class="button black" value="3" ng-click="getValue(3)">
+                <input type="button" class="button pink" value="+" ng-click="performOperation('+')">
             </p>
             <p>
-                <input type="button" class="cbutton cblack" value="0" ng-click="getValue(0)">
-                <input type="button" class="cbutton cblack" value="." ng-click="getValue('.')">
-                <input type="button" class="cbutton cblack" value="C" ng-click="clearLastValue()">
-                <input type="button" class="cbutton corange" value="=" ng-click="showResults()">
+                <input type="button" class="button black" value="0" ng-click="getValue(0)">
+                <input type="button" class="button black" value="." ng-click="getValue('.')">
+                <input type="button" class="button black" value="C" ng-click="clearLastValue()">
+                <input type="button" class="button orange" value="=" ng-click="showResults()">
             </p>
         </div>
     </div>
